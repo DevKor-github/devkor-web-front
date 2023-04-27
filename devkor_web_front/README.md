@@ -15,6 +15,7 @@ React 디자인 패턴 중 가장 기본적인 패턴으로, **데이터 로직�
 <img src="https://user-images.githubusercontent.com/78628241/234822403-77fd241f-7101-4b02-99b7-90b747defb0d.png" width="400"/>
 <img src="https://user-images.githubusercontent.com/78628241/234824498-e985ad22-4cfa-474e-8b46-c2c3c0481f9e.png" width="400"/>
 
+출처 : https://www.nextree.io/react-design-pattern/
 
 ### 폴더 구조
 
