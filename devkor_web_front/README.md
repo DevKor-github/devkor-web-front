@@ -1,38 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Presentation & Container 패턴
 
-## Getting Started
+React 디자인 패턴 중 가장 기본적인 패턴으로, **데이터 로직을 수행하는 Container 컴포넌트와 데이터를 출력하는 Presentation 컴포넌트를 분리**하여 구현하는 디자인 패턴입니다.
 
-First, run the development server:
+역할별 컴포넌트 분리로 인해 각각 명확한 기능과 책임을 갖습니다. 만약 분리하지 않고 하나의 컴포넌트 안에 로직, View를 구현하는 코드가 모두 있게 되면 컴포넌트 재사용이 어렵고, 컴포넌트 의존도가 높아지게 됩니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Container(src/Containers) 컴포넌트**
+- API 호출, State 관리, 이벤트 처리 등의 작업을 수행하는 컴포넌트입니다.
+- 변경된 상태 값을 props를 통해 Presentation 컴포넌트로 전달해줍니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Presentation(src/Components) 컴포넌트**
+- UI를 표시하는 컴포넌트입니다.
+- 직접 상태값을 관리하지 않고 Container 컴포넌트가 전달해준 props를 받아 출력만 해줍니다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<img src="https://user-images.githubusercontent.com/78628241/234822403-77fd241f-7101-4b02-99b7-90b747defb0d.png" width="400"/>
+<img src="https://user-images.githubusercontent.com/78628241/234824498-e985ad22-4cfa-474e-8b46-c2c3c0481f9e.png" width="400"/>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 폴더 구조
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- src/api : 서버의 API를 호출하는 소스 코드
+- src/components : Presentation 컴포넌트를 담당하는 소스 코드
+- src/containers : Container 컴포넌트를 담당하는 소스 코드
+- src/pages : 라우팅되는 페이지 소스 코드
+- src/styles : Global 스타일
+- src/types : 컴포넌트 Props의 타입을 정의하는 interface 소스 코드
