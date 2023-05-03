@@ -36,3 +36,51 @@ const MainContent = styled.div<{ size?: string }>`
     color: #ffffff;
     filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
 `;
+
+
+
+import React from 'react';
+import './footer.css';
+
+interface FooterPresentationProps {
+  githubUrl: string;
+  instagramUrl: string;
+}
+
+const FooterPresentation: React.FC<FooterPresentationProps> = ({ githubUrl, instagramUrl }) => {
+  return (
+    <footer className="footer-container">
+      <div className="row">
+        <div className="col-md-3">
+          <div className="footer-title">SERVICES</div>
+          <div className="footer-text">Service 1</div>
+          <div className="footer-text">Service 2</div>
+          <div className="footer-text">Service 3</div>
+          <div className="footer-text">Service 4</div>
+        </div>
+        <div className="col-md-3">
+          <div className="footer-title">KUDOG MESSZLE</div>
+          <div className="footer-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        </div>
+        <div className="col-md-3">
+          <div className="footer-title">CONTACT</div>
+          <a href={githubUrl} target="_blank" rel="noreferrer" className="footer-link">Github</a>
+          <a href={instagramUrl} target="_blank" rel="noreferrer" className="footer-link">Instagram</a>
+        </div>
+        <div className="col-md-3">
+          <div className="footer-title">COPYRIGHT</div>
+          <div className="footer-text">&#169; 2023 Your Company, Inc.</div>
+          <div className="footer-text">All Rights Reserved</div>
+          <div className="footer-text">Privacy Policy</div>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-12">
+          <div className="footer-text">Designed and developed by Your Name</div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default FooterPresentation;
