@@ -12,6 +12,9 @@ interface MainContentProps {
     mouseOn: string;
     render: "normal" | "hover" | "none";
     innerImg: StaticImageData;
+    mainText: {
+        [key: number]: [string];
+    };
 }
 
 export function MainContent({
@@ -23,6 +26,7 @@ export function MainContent({
     render,
     mouseOn,
     innerImg,
+    mainText,
 }: MainContentProps) {
     return (
         <MainContentWrapper
@@ -33,9 +37,22 @@ export function MainContent({
             className={render}
         >
             {render === "hover" && (
-                <Image width={286} src={innerImg} alt={children} />
+                <HoverBox>
+                    <ImgWrapper>
+                        <Image width={286} src={innerImg} alt={children} />
+                    </ImgWrapper>
+                    <TextWrapper>
+                        {mainText[index].map((el, i) => {
+                            if (i % 2 == 0) {
+                                return <h4>{el}</h4>;
+                            } else {
+                                return <p>{el}</p>;
+                            }
+                        })}
+                    </TextWrapper>
+                </HoverBox>
             )}
-            {children}
+            {render === "normal" && children}
         </MainContentWrapper>
     );
 }
@@ -59,12 +76,44 @@ const MainContentWrapper = styled.div<{ size?: string }>`
 
     &.hover {
         width: 100%;
+        height: 100%;
+    }
+`;
 
-        & img {
-            display: block;
-            position: relative;
-            left: 151px;
-            top: 157px;
-        }
+const HoverBox = styled.div`
+    height: 600px;
+    display: flex;
+    justify-content: space-around;
+`;
+
+const ImgWrapper = styled.div`
+    width: 20%;
+    display: block;
+    margin-left: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    & > img {
+        display: block;
+    }
+`;
+
+const TextWrapper = styled.div`
+    width: 50%;
+    margin: auto;
+    line-height: 32px;
+    & > h4 {
+        float: left;
+        display: inline;
+        margin-top: 30px;
+        text-align: start;
+        font-size: 20px;
+        border-bottom: 1px solid white;
+    }
+
+    & > p {
+        margin-top: 72px;
+        text-align: left;
+        font-size: 20px;
     }
 `;

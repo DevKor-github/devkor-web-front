@@ -9,6 +9,7 @@ import designer from "../../public/assets/img/designer.webp";
 import communication from "../../public/assets/img/communication.webp";
 import recruiting from "../../public/assets/img/recruiting.webp";
 import { StaticImageData } from "next/image";
+import introParagraph from "../utils/introParagraph";
 
 interface MainSectionBoxProps {
     contents: Array<[title: string, bigWidth: boolean]>;
@@ -54,6 +55,7 @@ export function MainSectionBox({ contents }: MainSectionBoxProps) {
                     onMouseLeave={handleLeave}
                     render={handleRender(mouseOn, el[0])}
                     innerImg={images[i]}
+                    mainText={introParagraph}
                 >
                     {el[0]}
                 </MainContent>
@@ -69,4 +71,5 @@ const MainSectionContainer = styled.div`
     margin: 0 auto;
     width: 1200px;
     height: 600px;
+    overflow: hidden;
 `;
