@@ -39,8 +39,6 @@ const MainContent = styled.div<{ size?: string }>`
 
 
 
-import React from 'react';
-import './footer.css';
 
 interface FooterPresentationProps {
   githubUrl: string;
