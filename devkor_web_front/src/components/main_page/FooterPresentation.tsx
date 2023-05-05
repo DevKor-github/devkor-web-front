@@ -13,9 +13,6 @@ const FooterPresentation: React.FC<FooterPresentationProps> = ({
     return (
         <FooterContainer>
             <div className="row">
-                <div className="col-md-1"></div>
-            </div>
-            <div className="row">
                 <div className="col-md-3">
                     <div className="footer-title">서비스</div>
                     <div className="footer-text">KUDOG</div>
@@ -46,25 +43,17 @@ const FooterPresentation: React.FC<FooterPresentationProps> = ({
             </div>
             <div className="row">
                 <div className="col-md-3">
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <div className="footer-text">COPYRIGHT @2023 DevKor</div>
+                    <div className="footer-text copyright">
+                        COPYRIGHT @2023 DevKor
+                    </div>
                 </div>
             </div>
-
             <div className="row">
                 <div className="col-md-3">
                     <div className="footer-text">
                         회장 노정훈 |010-5219-6349 <br /> devkor.apply@gmail.com
                     </div>
                 </div>
-            </div>
-            <div className="row">
-                <div className="col-md-3"></div>
             </div>
         </FooterContainer>
     );
@@ -80,6 +69,8 @@ const FooterContainer = styled.footer`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding-left: 12%;
+    padding-right: 12%;
 
     .row {
         display: flex;
