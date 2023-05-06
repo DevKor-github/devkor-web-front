@@ -3,6 +3,6 @@ const service = () => {
         <div>
             <h2>Hi archive page</h2>
         </div>
-    )
-}
-export default service
+    );
+};
+export default service;

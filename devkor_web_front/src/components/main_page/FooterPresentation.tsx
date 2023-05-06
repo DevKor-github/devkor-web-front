@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 
@@ -14,45 +15,35 @@ const FooterPresentation: React.FC<FooterPresentationProps> = ({
         <FooterContainer>
             <div className="row">
                 <div className="col-md-3">
-                    <div className="footer-title">서비스</div>
-                    <div className="footer-text">KUDOG</div>
-                    <div className="footer-text">MESSZLE</div>
+                    <FooterTitle>서비스</FooterTitle>
+                    <FooterText>KUDOG</FooterText>
+                    <FooterText>MESSZLE</FooterText>
                 </div>
 
                 <div className="col-md-3">
-                    <div className="footer-title">링크</div>
-                    <div className="footer-link-text">
-                        <a
-                            href={githubUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="footer-link"
-                        >
+                    <FooterTitle>링크</FooterTitle>
+                    <FooterLinkText>
+                        <Link href={githubUrl} className="footer-link">
                             Github
-                        </a>
-                        <a
-                            href={instagramUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="footer-link"
-                        >
+                        </Link>
+                        <Link href={instagramUrl} className="footer-link">
                             Instagram
-                        </a>
-                    </div>
+                        </Link>
+                    </FooterLinkText>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-3">
-                    <div className="footer-text copyright">
+                    <FooterText className="copyright">
                         COPYRIGHT @2023 DevKor
-                    </div>
+                    </FooterText>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-3">
-                    <div className="footer-text">
+                    <FooterText>
                         회장 노정훈 |010-5219-6349 <br /> devkor.apply@gmail.com
-                    </div>
+                    </FooterText>
                 </div>
             </div>
         </FooterContainer>
@@ -80,5 +71,42 @@ const FooterContainer = styled.footer`
     .col-md-3 {
         margin-left: 25px;
         margin-right: 25px;
+    }
+`;
+
+const FooterTitle = styled.div`
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #ffffff;
+`;
+
+const FooterText = styled.div<{ className?: string }>`
+    margin-bottom: 10px;
+    color: #ffffff;
+
+    margin-top: ${(props) =>
+        props.className === "copyright" ? "90px" : "0px"};
+`;
+
+const FooterLinkText = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    a {
+        margin-bottom: 10px;
+        color: #ffffff;
+    }
+`;
+
+const FooterLink = styled.a`
+    display: block;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-decoration: none;
+
+    :hover {
+        text-decoration: underline;
+        color: #ffffff;
     }
 `;
