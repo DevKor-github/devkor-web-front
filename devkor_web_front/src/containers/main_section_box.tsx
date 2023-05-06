@@ -16,7 +16,7 @@ interface MainSectionBoxProps {
 }
 
 export function MainSectionBox({ contents }: MainSectionBoxProps) {
-    const [mouseOn, setMouseOn] = useState<string>("");
+    const [clicked, setClicked] = useState<string>("");
     const images: Array<StaticImageData> = [
         vision,
         project,
@@ -27,39 +27,34 @@ export function MainSectionBox({ contents }: MainSectionBoxProps) {
         recruiting,
     ];
 
-    const handleHover: MouseEventHandler = (e) => {
-        setMouseOn(e.currentTarget.innerHTML);
+    const handleClick: MouseEventHandler = (e) => {
+        if (clicked === "") setClicked(e.currentTarget.innerHTML);
     };
-    const handleLeave: MouseEventHandler = (e) => {
-        setMouseOn("");
-    };
-    const handleRender = (mouseOn: string, text: string) => {
-        if (!mouseOn) {
-            return "normal";
-        } else if (text === mouseOn) {
-            return "hover";
-        } else {
-            return "none";
-        }
+    const handleQuit: MouseEventHandler = (e) => {
+        e.stopPropagation();
+        setClicked("");
     };
 
     return (
         <MainSectionContainer>
-            {contents.map((el, i) => (
-                <MainContent
-                    index={i}
-                    key={i}
-                    size={el[1] ? "big" : ""}
-                    onMouseEnter={handleHover}
-                    mouseOn={mouseOn}
-                    onMouseLeave={handleLeave}
-                    render={handleRender(mouseOn, el[0])}
-                    innerImg={images[i]}
-                    mainText={introParagraph}
-                >
-                    {el[0]}
-                </MainContent>
-            ))}
+            {contents.map((el, i) => {
+                return (
+                    (clicked === "" || clicked === el[0]) && (
+                        <MainContent
+                            index={i}
+                            key={i}
+                            size={el[1] ? "big" : ""}
+                            onClick={handleClick}
+                            clicked={clicked}
+                            onQuit={handleQuit}
+                            innerImg={images[i]}
+                            mainText={introParagraph}
+                        >
+                            {el[0]}
+                        </MainContent>
+                    )
+                );
+            })}
         </MainSectionContainer>
     );
 }

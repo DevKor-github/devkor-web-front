@@ -2,18 +2,18 @@ import { StaticImageData } from "next/image";
 import { MouseEventHandler } from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import X from "/public/assets/img/X.webp";
 
 interface MainContentProps {
     index: number;
     size: string;
     children: string;
-    onMouseEnter: MouseEventHandler;
-    onMouseLeave: MouseEventHandler;
-    mouseOn: string;
-    render: "normal" | "hover" | "none";
+    onClick: MouseEventHandler;
+    onQuit: MouseEventHandler;
+    clicked: string;
     innerImg: StaticImageData;
     mainText: {
-        [key: number]: [string];
+        [key: number]: string[];
     };
 }
 
@@ -21,10 +21,9 @@ export function MainContent({
     index,
     size,
     children,
-    onMouseEnter,
-    onMouseLeave,
-    render,
-    mouseOn,
+    onClick,
+    onQuit,
+    clicked,
     innerImg,
     mainText,
 }: MainContentProps) {
@@ -32,33 +31,34 @@ export function MainContent({
         <MainContentWrapper
             key={index}
             size={size}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            className={render}
+            onClick={onClick}
+            className={clicked === children ? "clicked" : ""}
         >
-            {render === "hover" && (
-                <HoverBox>
+            {clicked === children && (
+                <DetailBox>
+                    <Image src={X} alt="X" onClick={onQuit} />
                     <ImgWrapper>
                         <Image width={286} src={innerImg} alt={children} />
                     </ImgWrapper>
                     <TextWrapper>
                         {mainText[index].map((el, i) => {
                             if (i % 2 == 0) {
-                                return <h4>{el}</h4>;
+                                return <h4 key={i}>{el}</h4>;
                             } else {
-                                return <p>{el}</p>;
+                                return <p key={i}>{el}</p>;
                             }
                         })}
                     </TextWrapper>
-                </HoverBox>
+                </DetailBox>
             )}
-            {render === "normal" && children}
+            {clicked === "" && children}
         </MainContentWrapper>
     );
 }
 
-const MainContentWrapper = styled.div<{ size?: string }>`
+const MainContentWrapper = styled.div<{ size?: string; className: string }>`
     width: ${(props) => (props.size === "big" ? "798px" : "398px")};
+    height: 200px;
     font-size: 24px;
     text-align: center;
     font-weight: 300;
@@ -69,27 +69,51 @@ const MainContentWrapper = styled.div<{ size?: string }>`
     font-family: "NanumSquare";
     color: #ffffff;
     filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
+    cursor: pointer;
+    transition: background-color 0.4s;
 
-    &.none {
-        display: none;
+    :hover {
+        background-color: rgba(0, 0, 0, 0.3);
     }
 
-    &.hover {
-        width: 100%;
-        height: 100%;
+    @keyframes click {
+        0% {
+            width: 800px;
+        }
+
+        100% {
+            width: 1200px;
+            height: 600px;
+        }
+    }
+    &.clicked {
+        background-color: rgba(0, 0, 0, 0.3);
+        animation-name: click;
+        animation-duration: 0.3s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: both;
     }
 `;
 
-const HoverBox = styled.div`
+const DetailBox = styled.div`
     height: 600px;
     display: flex;
     justify-content: space-around;
+
+    & > img {
+        margin-top: 50px;
+        margin-left: 50px;
+        cursor: pointer;
+    }
+
+    width: 100%;
+    cursor: auto;
 `;
 
 const ImgWrapper = styled.div`
     width: 20%;
     display: block;
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: auto;
     margin-bottom: auto;
 
