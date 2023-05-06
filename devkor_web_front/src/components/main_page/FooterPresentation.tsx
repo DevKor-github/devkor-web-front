@@ -69,8 +69,9 @@ const FooterContainer = styled.footer`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-left: 12%;
-    padding-right: 12%;
+    padding-left: 150px;
+    padding-right: 150px;
+    flex-wrap: nowrap;
 
     .row {
         display: flex;
