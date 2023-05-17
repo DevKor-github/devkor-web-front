@@ -13,7 +13,7 @@ interface MainContentProps {
     render: "normal" | "hover" | "none";
     innerImg: StaticImageData;
     mainText: {
-        [key: number]: [string];
+        [key: number]: string[];
     };
 }
 
@@ -44,9 +44,9 @@ export function MainContent({
                     <TextWrapper>
                         {mainText[index].map((el, i) => {
                             if (i % 2 == 0) {
-                                return <h4>{el}</h4>;
+                                return <h4 key={i}>{el}</h4>;
                             } else {
-                                return <p>{el}</p>;
+                                return <p key={i}>{el}</p>;
                             }
                         })}
                     </TextWrapper>

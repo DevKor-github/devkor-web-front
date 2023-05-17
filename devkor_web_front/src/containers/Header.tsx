@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 
 const Header = () => {
@@ -8,13 +9,13 @@ const Header = () => {
                     <Nav>
                         <ul>
                             <li>
-                                <a href="/service">서비스</a>
+                                <Link href="/service">서비스</Link>
                             </li>
                             <li>
-                                <a href="/blog">블로그</a>
+                                <Link href="/blog">블로그</Link>
                             </li>
                             <li>
-                                <a href="/archive">아카이브</a>
+                                <Link href="/archive">아카이브</Link>
                             </li>
                         </ul>
                     </Nav>
@@ -23,39 +24,15 @@ const Header = () => {
                     <Nav>
                         <ul>
                             <li>
-                                <a href="/github">GitHub</a>
+                                <Link href="/github">GitHub</Link>
                             </li>
                             <li>
-                                <a href="/recruiting">리크루팅</a>
+                                <Link href="/recruiting">리크루팅</Link>
                             </li>
                         </ul>
                     </Nav>
-                    {/*<h2>This is Header</h2>*/}
                 </div>
             </HeaderContent>
-
-            {/*<div>
-                <nav className={styles.navigation}>
-                    <ul>
-                        <li>
-                            <a href="/service">서비스</a>
-                        </li>
-                        <li>
-                            <a href="/blog">블로그</a>
-                        </li>
-                        <li>
-                            <a href="/archive">아카이브</a>
-                        </li>
-                        <li>
-                            <a href="/github">GitHub</a>
-                        </li>
-                        <li>
-                            <a href="/recruiting">리크루팅</a>
-                        </li>
-                    </ul>
-                </nav>*/}
-            {/*<h2>This is Header</h2>*/}
-            {/* </div>*/}
         </HeaderContainer>
     );
 };
