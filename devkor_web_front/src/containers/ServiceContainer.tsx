@@ -1,11 +1,12 @@
 import Image from "next/image";
 import styled from "styled-components";
-import github_mark_white1 from "../../public/assets/img/github_mark_white1.webp";
-import Vector from "../../public/assets/img/Vector.webp";
+import github_mark_white1 from "../../public/assets/img/icons8-github-64.webp";
+import Vector from "../../public/assets/img/Vector.svg";
 import Link from "next/link";
+import { StaticImageData } from "next/image";
 
 interface serviceContainerProps {
-    img: typeof Image;
+    img: string | StaticImageData;
     serviceName: any;
     content: any;
     serviceURL: any;
@@ -21,34 +22,35 @@ export default function ServiceContainer({
 }: serviceContainerProps) {
     return (
         <Box>
-            <LogoBox>
-                <Image src={img} alt={serviceName} width={175} />
-            </LogoBox>
+            <LogoWrapper>
+                <LogoBox>
+                    <Image src={img} alt={serviceName} />
+                </LogoBox>
+            </LogoWrapper>
             <MainContent size="big">{content}</MainContent>
-
             <Picture>
-                <LinkBox>
-                    <a href={serviceURL}>
+                <a href={serviceURL}>
+                    <LinkBox>
                         <Image src={Vector} alt="arrow" width={44} />
-                    </a>
-                </LinkBox>
-                <LinkBox2>
-                    <a href={githubURL}>
+                    </LinkBox>
+                </a>
+                <a href={githubURL}>
+                    <LinkBox2>
                         <Image
                             src={github_mark_white1}
                             alt="github"
                             width={46}
                         />
-                    </a>
-                </LinkBox2>
+                    </LinkBox2>
+                </a>
             </Picture>
         </Box>
     );
 }
 
 const MainContent = styled.div<{ size?: string }>`
-    width: ${(props) => (props.size === "big" ? "792px" : "338px")};
-    height: ${(props) => (props.size === "big" ? "336px" : "336px")};
+    width: 794px;
+    height: 336px;
     font-size: 27px;
     text-align: center;
     font-weight: 300;
@@ -59,7 +61,6 @@ const MainContent = styled.div<{ size?: string }>`
     font-family: "NanumSquare";
     color: black;
     filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
-    float: left;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,17 +72,21 @@ const Picture = styled.div`
     text-align: center;
     font-weight: 300;
     margin-top: 0px;
-    float: left;
     background-color: rgba(255, 255, 255, 1);
 `;
 const Box = styled.div`
-    background-color: rgba(255, 255, 255, 1);
+    background-color: #ffffff;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 
     width: 1252px;
     height: 336px;
     margin-bottom: 64px;
-    margin-left: 334px;
-    display: table;
+    margin-left: auto;
+    margin-right: auto;
 `;
 const LinkBox = styled.div`
     background-color: rgba(86, 19, 232, 1);
@@ -108,11 +113,26 @@ const LogoBox = styled.div`
 
     width: 284px;
     height: 284px;
-    margin-left: 26px;
-    display: inline-block;
-    justify-content: center;
+
+    margin: 0 auto;
+
+    display: flex;
     align-items: center;
+    justify-content: center;
 
     box-shadow: -1px -1px 5px rgba(128, 128, 128, 1);
-    object-fit: none;
+
+    img {
+        display: block;
+        margin: auto;
+    }
+`;
+
+const LogoWrapper = styled.div`
+    width: 336px;
+    height: 336px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
