@@ -9,12 +9,16 @@ export interface BoxProps {
     };
     ParagraphKey?: number;
     isMobile?: boolean;
+    title: string;
+    items: string[] | undefined;
 }
 
 const Box: React.FC<BoxProps> = ({
     Paragraph,
     ParagraphKey,
     isMobile,
+    title,
+    items,
 }: BoxProps) => {
     const [isScrollable, setIsScrollable] = useState(false);
 
