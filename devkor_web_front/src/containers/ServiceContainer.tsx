@@ -24,7 +24,7 @@ export default function ServiceContainer({
         <Box>
             <LogoWrapper>
                 <LogoBox>
-                    <Image src={img} alt={serviceName} />
+                    <Image priority src={img} alt={serviceName} />
                 </LogoBox>
             </LogoWrapper>
             <MainContent size="big">{content}</MainContent>
