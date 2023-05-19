@@ -6,7 +6,7 @@ function MobileFooter() {
         <Container>
             <Menu>
                 {content.map((el, i) => {
-                    return <MenuItem>{el}</MenuItem>;
+                    return <MenuItem key={i}>{el}</MenuItem>;
                 })}
             </Menu>
         </Container>
