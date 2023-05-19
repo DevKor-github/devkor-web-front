@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import MobileFooter from "./mobileFooter";
-
 import Devkor from "../../../public/assets/img/DevKor.webp";
 import Image from "next/image";
 
 const Box: React.FC = () => {
+
     const [isScrollable, setIsScrollable] = useState(false);
 
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
