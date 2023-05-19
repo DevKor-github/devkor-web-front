@@ -22,7 +22,6 @@ const BoxContainer: React.FC<BoxContainerProps> = ({ boxes, Paragraph, Paragraph
     return (
     <div className="box-container">
         <div></div>
-      <Image src={Devkor} alt="Devkor" width={564} />
       <h3>
         소개
       </h3>

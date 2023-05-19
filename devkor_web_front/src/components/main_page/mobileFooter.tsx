@@ -29,11 +29,13 @@ const Container = styled.footer`
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50px;
-    background-color: #f5f5f5;
+    height: 55px;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px 10px 0 0; 
+   
 `;
 
 const Menu = styled.ul`
