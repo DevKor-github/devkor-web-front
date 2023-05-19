@@ -87,6 +87,17 @@ const Box = styled.div`
     margin-bottom: 64px;
     margin-left: auto;
     margin-right: auto;
+
+    animation-name: bottomUp;
+    animation-duration: 1s;
+
+    @keyframes bottomUp {
+        0% {
+            transform: translateY(300px);
+        }
+        100% {
+        }
+    }
 `;
 const LinkBox = styled.div`
     background-color: rgba(86, 19, 232, 1);

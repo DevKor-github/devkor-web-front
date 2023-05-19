@@ -20,7 +20,7 @@ const TitleContainer = styled.div`
     display: flex;
     flex-direction: row;
     padding-top: 214px;
-    margin-bottom: 93px;
+    margin-bottom: 40px;
     margin-left: 280px;
     img {
         margin-bottom: 64px;
