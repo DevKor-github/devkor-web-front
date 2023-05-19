@@ -98,6 +98,10 @@ const Box = styled.div`
         100% {
         }
     }
+
+    &:last-child {
+        margin-bottom: 200px;
+    }
 `;
 const LinkBox = styled.div`
     background-color: rgba(86, 19, 232, 1);
