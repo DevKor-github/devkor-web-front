@@ -93,9 +93,11 @@ const Box = styled.div`
 
     @keyframes bottomUp {
         0% {
-            transform: translateY(300px);
+            opacity: 0;
+            transform: translateY(350px);
         }
         100% {
+            opacity: 1;
         }
     }
 
