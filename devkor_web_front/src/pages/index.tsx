@@ -22,11 +22,7 @@ export default function Home() {
                     <FooterContainer />
                 </div>
             )}
-            {/* {mobile && (
-                <div>
-                    <Box></Box>
-                </div>
-            )} */}
+            {mobile && <Box />}
         </div>
     );
 }
