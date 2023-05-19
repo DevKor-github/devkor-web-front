@@ -38,7 +38,12 @@ export function MainContent({
                 <DetailBox>
                     <Image src={X} alt="X" onClick={onQuit} />
                     <ImgWrapper>
-                        <Image width={286} src={innerImg} alt={children} />
+                        <Image
+                            priority
+                            width={286}
+                            src={innerImg}
+                            alt={children}
+                        />
                     </ImgWrapper>
                     <TextWrapper>
                         {mainText[index].map((el, i) => {
