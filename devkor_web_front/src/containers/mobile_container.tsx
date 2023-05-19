@@ -1,8 +1,6 @@
 import React from "react";
 import Devkor from "../../../public/assets/img/DevKor.webp";
 import Image from "next/image";
-import styled from "styled-components";
-import Paragraph from "@/utils/introParagraph";
 import Box, { BoxProps } from "@/components/main_page/mobile_presentation";
 
 interface BoxContainerProps extends BoxProps {

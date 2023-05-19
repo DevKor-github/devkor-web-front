@@ -4,8 +4,17 @@ import MobileFooter from "./mobileFooter";
 import Devkor from "../../../public/assets/img/DevKor.webp";
 import Image from "next/image";
 
-const Box: React.FC = () => {
+export interface BoxProps {
+    Paragraph?: {
+        [key: number]: string[];
+    };
+    ParagraphKey?: number;
+    isMobile?: boolean;
+    title?: string;
+    items?: string[] | undefined;
+}
 
+const Box: React.FC<BoxProps> = ({ Paragraph, ParagraphKey, title, items }) => {
     const [isScrollable, setIsScrollable] = useState(false);
 
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
