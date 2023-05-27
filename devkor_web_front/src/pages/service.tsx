@@ -4,13 +4,14 @@ import FooterContainer from "@/containers/FooterContainer";
 import Header from "@/containers/Header";
 
 const service = () => {
-    return (
-        <div>
-            <Header />
-            <ServiceTitle />
-            <ServiceBox></ServiceBox>
-            <FooterContainer></FooterContainer>
-        </div>
-    );
+  return (
+    <div>
+      <Header />
+      <ServiceTitle />
+      <ServiceBox></ServiceBox>
+      <FooterContainer></FooterContainer>
+    </div>
+  );
 };
+
 export default service;
