@@ -11,6 +11,7 @@ export default function Home() {
 
     useEffect(() => {
         if (isMobile) setMobile(true);
+        else setMobile(false);
     }, [isMobile]);
 
     return (
