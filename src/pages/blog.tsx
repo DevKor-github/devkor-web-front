@@ -1,8 +1,27 @@
+
+import MobileBlogPage from "@/components/main_page/mobile_blog_pre";
+import { isMobile } from "react-device-detect";
+import { useState, useEffect } from "react";
+
+
+
 const service = () => {
-    return (
+      //if mobile
+      const [mobile, setMobile] = useState<boolean>(false);
+
+      useEffect(() => {
+          if (isMobile) setMobile(true);
+      }, [isMobile]);
+  
+      return (
         <div>
-            <h2>Hi blog page</h2>
-        </div>
-    )
-}
+
+              {mobile && <MobileBlogPage />}
+              </div>
+      );
+  };
 export default service
+
+
+
+

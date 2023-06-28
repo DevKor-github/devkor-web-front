@@ -11,7 +11,6 @@ export default function Home() {
 
     useEffect(() => {
         if (isMobile) setMobile(true);
-        else setMobile(false);
     }, [isMobile]);
 
     return (
@@ -23,11 +22,7 @@ export default function Home() {
                     <FooterContainer />
                 </div>
             )}
-            {mobile && (
-                <div>
-                    <Box></Box>
-                </div>
-            )}
+            {mobile && <Box />}
         </div>
     );
 }
