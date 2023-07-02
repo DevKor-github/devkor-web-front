@@ -60,6 +60,15 @@ const Box: React.FC = () => {
     document.body.style.overflow = "unset";
   };
 
+  const Boxes = [
+    "프로젝트",
+    "스터디",
+    "디자이너",
+    "해커톤",
+    "친목",
+    "리크루팅",
+  ];
+
   return (
     <div>
       {isModalOpen && (
@@ -116,48 +125,16 @@ const Box: React.FC = () => {
           </Text>
         </Container>
 
-        <MainContent
-          onClick={() => {
-            handleBoxClick("프로젝트");
-          }}
-        >
-          프로젝트
-        </MainContent>
-        <MainContent
-          onClick={() => {
-            handleBoxClick("스터디");
-          }}
-        >
-          스터디
-        </MainContent>
-        <MainContent
-          onClick={() => {
-            handleBoxClick("디자이너");
-          }}
-        >
-          디자이너
-        </MainContent>
-        <MainContent
-          onClick={() => {
-            handleBoxClick("해커톤");
-          }}
-        >
-          해커톤
-        </MainContent>
-        <MainContent
-          onClick={() => {
-            handleBoxClick("친목");
-          }}
-        >
-          친목
-        </MainContent>
-        <MainContent
-          onClick={() => {
-            handleBoxClick("리크루팅");
-          }}
-        >
-          리크루팅
-        </MainContent>
+        {Boxes.map((el, i) => (
+          <MainContent
+            key={i}
+            onClick={() => {
+              handleBoxClick(el);
+            }}
+          >
+            {el}
+          </MainContent>
+        ))}
       </BoxWrapper>
       <MobileFooter />
     </div>
