@@ -13,7 +13,7 @@ interface ModalProps {
 export default function Modal({ title, content, modalOff, image }: ModalProps) {
   return (
     <ModalBox>
-      <Image src={X} alt="X" width={20} onClick={modalOff} />
+      <Image priority src={X} alt="X" width={20} onClick={modalOff} />
       <ModalContent>
         {image && <Image src={image} alt={title} width={50} />}
         <h2>{title}</h2>
