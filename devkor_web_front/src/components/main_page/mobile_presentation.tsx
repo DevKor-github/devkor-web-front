@@ -34,6 +34,7 @@ const Box: React.FC = () => {
 
   const handleBoxClick = (title: string) => {
     setIsModalOpen(true);
+    document.body.style.overflow = "hidden";
 
     const images: { [name: string]: StaticImageData } = {
       프로젝트: project,
@@ -56,6 +57,7 @@ const Box: React.FC = () => {
 
   const handleModalOff = () => {
     setIsModalOpen(false);
+    document.body.style.overflow = "unset";
   };
 
   return (
@@ -68,7 +70,7 @@ const Box: React.FC = () => {
           image={ModalData.image}
         />
       )}
-      <MobileFooter />
+
       <BoxWrapper
         className={`box mobile ${isScrollable ? "scrollable" : ""}`}
         onScroll={handleScroll}
@@ -157,6 +159,7 @@ const Box: React.FC = () => {
           리크루팅
         </MainContent>
       </BoxWrapper>
+      <MobileFooter />
     </div>
   );
 };
@@ -279,6 +282,8 @@ const BoxWrapper = styled.div`
     rgba(86, 19, 232, 0.65) 17%,
     rgba(86, 19, 232, 0.9) 100%
   );
+
+  margin-bottom: 55px;
 `;
 
 export default Box;
