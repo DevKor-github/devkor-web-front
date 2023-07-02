@@ -15,7 +15,7 @@ export default function Modal({ title, content, modalOff, image }: ModalProps) {
     <ModalBox>
       <Image priority src={X} alt="X" width={20} onClick={modalOff} />
       <ModalContent>
-        {image && <Image src={image} alt={title} width={50} />}
+        {image && <Image priority src={image} alt={title} width={50} />}
         <h2>{title}</h2>
         <Image className="line" src={Line} alt="구분선" />
         <p>{content}</p>
