@@ -72,6 +72,12 @@ const MainContentWrapper = styled.div<{ size?: string; className: string }>`
   cursor: pointer;
   transition: background-color 0.4s;
 
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
   :hover {
     background-color: rgba(0, 0, 0, 0.3);
   }
