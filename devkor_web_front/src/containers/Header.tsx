@@ -30,7 +30,14 @@ const Header = () => {
                 <Link href="/recruiting">리크루팅</Link>
               </li>
               <li>
-                <Link href="/login">로그인</Link>
+                <Link
+                  href={`https://devkor-sso-front.vercel.app/`}
+                  passHref
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  로그인
+                </Link>
               </li>
             </ul>
           </Nav>
