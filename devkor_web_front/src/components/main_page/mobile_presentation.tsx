@@ -224,16 +224,11 @@ const MainContent = styled.div<{ size?: string }>`
   line-height: 150px;
   font-family: "NanumSquare";
   color: #ffffff;
-  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
-  background: linear-gradient(
-    180deg,
-    rgba(78, 35, 172, 0.15) 0%,
-    rgba(84, 23, 219, 0.3) 0.01%,
-    rgba(86, 19, 232, 0.65) 73.12%,
-    rgba(86, 19, 232, 0.9) 100%
-  );
+
+  background: var(--default, rgba(0, 0, 0, 0.15));
+
   :hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background: var(--while-hovering, rgba(0, 0, 0, 0.3));
   }
 `;
 
