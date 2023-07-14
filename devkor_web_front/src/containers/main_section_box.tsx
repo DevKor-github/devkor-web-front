@@ -12,59 +12,59 @@ import { StaticImageData } from "next/image";
 import introParagraph from "../utils/introParagraph";
 
 interface MainSectionBoxProps {
-    contents: Array<[title: string, bigWidth: boolean]>;
+  contents: Array<[title: string, bigWidth: boolean]>;
 }
 
 export function MainSectionBox({ contents }: MainSectionBoxProps) {
-    const [clicked, setClicked] = useState<string>("");
-    const images: Array<StaticImageData> = [
-        vision,
-        project,
-        study,
-        hackaton,
-        designer,
-        communication,
-        recruiting,
-    ];
+  const [clicked, setClicked] = useState<string>("");
+  const images: Array<StaticImageData> = [
+    vision,
+    project,
+    study,
+    hackaton,
+    designer,
+    communication,
+    recruiting,
+  ];
 
-    const handleClick: MouseEventHandler = (e) => {
-        if (clicked === "") setClicked(e.currentTarget.innerHTML);
-    };
-    const handleQuit: MouseEventHandler = (e) => {
-        e.stopPropagation();
-        setClicked("");
-    };
+  const handleClick: MouseEventHandler = (e) => {
+    if (clicked === "") setClicked(e.currentTarget.innerHTML);
+  };
+  const handleQuit: MouseEventHandler = (e) => {
+    e.stopPropagation();
+    setClicked("");
+  };
 
-    return (
-        <MainSectionContainer>
-            {contents.map((el, i) => {
-                return (
-                    (clicked === "" || clicked === el[0]) && (
-                        <MainContent
-                            index={i}
-                            key={i}
-                            size={el[1] ? "big" : ""}
-                            onClick={handleClick}
-                            clicked={clicked}
-                            onQuit={handleQuit}
-                            innerImg={images[i]}
-                            mainText={introParagraph}
-                        >
-                            {el[0]}
-                        </MainContent>
-                    )
-                );
-            })}
-        </MainSectionContainer>
-    );
+  return (
+    <MainSectionContainer>
+      {contents.map((el, i) => {
+        return (
+          (clicked === "" || clicked === el[0]) && (
+            <MainContent
+              index={i}
+              key={i}
+              size={el[1] ? "big" : ""}
+              onClick={handleClick}
+              clicked={clicked}
+              onQuit={handleQuit}
+              innerImg={images[i]}
+              mainText={introParagraph}
+            >
+              {el[0]}
+            </MainContent>
+          )
+        );
+      })}
+    </MainSectionContainer>
+  );
 }
 
 const MainSectionContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    width: 1200px;
-    height: 600px;
-    overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 1200px;
+  height: 600px;
+  overflow: hidden;
 `;
