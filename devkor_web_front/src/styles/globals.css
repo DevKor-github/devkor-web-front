@@ -22,6 +22,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+button {
+  border:none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
